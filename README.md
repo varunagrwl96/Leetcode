@@ -4,3 +4,7 @@ I will be providing solutions for problems where I feel my solutions were differ
 
 Day 5 Problem:
 Best Time to Buy and Sell Stock II
+
+Day 6 Problem:
+Group Anagrams
+
