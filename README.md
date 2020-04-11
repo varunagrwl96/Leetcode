@@ -8,3 +8,6 @@ Best Time to Buy and Sell Stock II
 Day 6 Problem:
 Group Anagrams
 
+Day 7 Problem:
+Counting Elements
+
