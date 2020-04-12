@@ -11,3 +11,6 @@ Group Anagrams
 Day 7 Problem:
 Counting Elements
 
+Day 9 Problem:
+Backspace String Compare
+
