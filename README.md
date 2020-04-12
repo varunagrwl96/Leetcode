@@ -11,6 +11,9 @@ Group Anagrams
 Day 7 Problem:
 Counting Elements
 
+Day 8 Problem:
+Middle of the Linked List
+
 Day 9 Problem:
 Backspace String Compare
 
