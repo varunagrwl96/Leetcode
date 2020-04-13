@@ -1,3 +1,4 @@
+/* Solution O(N) time and O(1) Space */
 class Solution {
     public boolean backspaceCompare(String S, String T) {
         return getString(S).compareTo(getString(T))==0;
@@ -5,14 +6,13 @@ class Solution {
     
     public String getString(String S){
         int slength=S.length();
-        char[] sCharArray = S.toCharArray();
         int backspace=0;
         String sAns="";
         for(int i=slength-1;i>=0;i--){
-            if(sCharArray[i]=='#'){
+            if(S.charAt(i)=='#'){
                 backspace++;
             }else if(backspace==0){
-                sAns += sCharArray[i]; 
+                sAns += S.charAt(i); 
             }else{
                 backspace--;
             }
