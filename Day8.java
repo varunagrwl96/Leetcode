@@ -23,3 +23,19 @@ class Solution {
         return head;
     }
 }
+------------------------------------------------------------------------------
+/*Solution by Errichto */
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode pointer1=head,pointer2=head;
+        while(pointer2!=null){
+            pointer2=pointer2.next;
+            if(pointer2==null){
+             return pointer1;   
+            }
+            pointer2=pointer2.next;
+            pointer1=pointer1.next;
+        }
+        return pointer1;
+    }
+}
