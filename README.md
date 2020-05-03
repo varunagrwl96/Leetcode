@@ -1,6 +1,6 @@
 # leetcode30daychallenge
 
-I will be providing solutions for problems where I feel my solutions were different than you can find online.
+I will be providing solutions for problems given in Leetcode April challenge.
 
 Day 5 Problem:
 Best Time to Buy and Sell Stock II
