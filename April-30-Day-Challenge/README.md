@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-Solution to all leetcode problems done by me :)
-Enjoy!
-=======
 # leetcode30daychallenge
 
 I will be providing solutions for problems given in Leetcode April challenge.
@@ -46,4 +42,3 @@ Day 17 Problem:
 Number of Islands
 
 
->>>>>>> 4454f222d6566fdd6b0fa3c85010053da82eb39e
