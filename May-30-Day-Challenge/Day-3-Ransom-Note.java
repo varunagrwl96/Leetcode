@@ -24,6 +24,7 @@ class Solution {
         
     }
 }
+----------------------------------------------
 Slower solution than Hashmap.
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
@@ -34,6 +35,22 @@ class Solution {
             }
             magazine = magazine.replaceFirst(Character.toString(c),"1");
             // magazine = magazine.substring(0,index)+'1'+magazine.substring(index+1);
+        }
+        return true;
+    }
+}
+------------------------------------------------
+Faster Solution than all
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] table = new int[26];
+        for (char c : magazine.toCharArray()){
+            table[c - 'a']++;
+        }
+        for (char c : ransomNote.toCharArray()){
+            if (--table[c - 'a'] < 0){
+                return false;
+            }
         }
         return true;
     }
