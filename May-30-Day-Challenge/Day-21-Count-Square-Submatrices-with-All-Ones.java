@@ -1,4 +1,4 @@
-O(n) time & O(n) space complexity
+O(rows*cols) time & O(rows*cols) space complexity
 class Solution {
     public int countSquares(int[][] matrix) {
         int rows = matrix.length;
