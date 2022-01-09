@@ -17,38 +17,40 @@ class WordDictionary {
     }
     
     public boolean search(String word) {
-        TrieNode node = root;
-        int i=0;
-        for(char c : word.toCharArray()){
-            if(c=='.'){
-                for(TrieNode neighbour : node.links){
-                    if(neighbour!=null){
-                        boolean found = searchNeighbour(word.substring(i+1), neighbour);
-                        if(found){
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }else if(node.containsKey(c)){
-                node = node.get(c);
-                i++;
-            }else{
-                return false;
-            }
-        }
-        System.out.println(node.isEnd());
-        return node.isEnd();
+        return search2(word,root);
     }
+    //     TrieNode node = root;
+    //     int i=0;
+    //     for(char c : word.toCharArray()){
+    //         if(c=='.'){
+    //             for(TrieNode neighbour : node.links){
+    //                 if(neighbour!=null){
+    //                     boolean found = searchNeighbour(word.substring(i+1), neighbour);
+    //                     if(found){
+    //                         return true;
+    //                     }
+    //                 }
+    //             }
+    //             return false;
+    //         }else if(node.containsKey(c)){
+    //             node = node.get(c);
+    //             i++;
+    //         }else{
+    //             return false;
+    //         }
+    //     }
+    //     System.out.println(node.isEnd());
+    //     return node.isEnd();
+    // }
     
-    public boolean searchNeighbour(String word, TrieNode neighbour){
+    public boolean search2(String word, TrieNode neighbour){
         TrieNode node = neighbour;
         int i=0;
         for(char c : word.toCharArray()){
             if(c=='.'){
                 for(TrieNode neighbour2 : node.links){
                     if(neighbour2!=null){
-                        boolean found = searchNeighbour(word.substring(i+1), neighbour2);
+                        boolean found = search2(word.substring(i+1), neighbour2);
                         if(found){
                             return true;
                         }
