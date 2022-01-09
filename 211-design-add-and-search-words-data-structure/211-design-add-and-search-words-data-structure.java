@@ -19,34 +19,11 @@ class WordDictionary {
     public boolean search(String word) {
         return search2(word,root);
     }
-    //     TrieNode node = root;
-    //     int i=0;
-    //     for(char c : word.toCharArray()){
-    //         if(c=='.'){
-    //             for(TrieNode neighbour : node.links){
-    //                 if(neighbour!=null){
-    //                     boolean found = searchNeighbour(word.substring(i+1), neighbour);
-    //                     if(found){
-    //                         return true;
-    //                     }
-    //                 }
-    //             }
-    //             return false;
-    //         }else if(node.containsKey(c)){
-    //             node = node.get(c);
-    //             i++;
-    //         }else{
-    //             return false;
-    //         }
-    //     }
-    //     System.out.println(node.isEnd());
-    //     return node.isEnd();
-    // }
     
     public boolean search2(String word, TrieNode neighbour){
         TrieNode node = neighbour;
-        int i=0;
-        for(char c : word.toCharArray()){
+        for(int i=0;i<word.length();i++){
+            char c=word.charAt(i);
             if(c=='.'){
                 for(TrieNode neighbour2 : node.links){
                     if(neighbour2!=null){
@@ -56,11 +33,10 @@ class WordDictionary {
                         }
                     }
                 }
-                return false;
-            }else if(node.containsKey(c)){
+            return false;
+        }else if(node.containsKey(c)){
                 node = node.get(c);
-                i++;
-            }else{
+        }else{
                 return false;
             }
         }
