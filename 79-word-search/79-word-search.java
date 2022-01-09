@@ -3,12 +3,8 @@ class Solution {
     public boolean exist(char[][] board, String word) {
         int m=board.length;
         int n=board[0].length;
-        visited = new boolean[m][n];
-        // for(int i=0;i<word.length()-1;i++){
-            // char c = word.charAt(i);
             for(int j=0;j<m;j++){
                 for(int k=0;k<n;k++){
-                    // if(board[j][k]==c){
                         if(helper(board,word,j,k,0)){
                             return true;
                         }
