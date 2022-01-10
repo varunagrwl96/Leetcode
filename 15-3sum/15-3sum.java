@@ -15,7 +15,6 @@ class Solution {
         int start=i+1;
         int end = nums.length-1;
         while(start<end){
-            // int sum = nums[start]+nums[end];
             if(nums[i]+nums[start]+nums[end]==0){
                 ans.add(Arrays.asList(nums[i],nums[start],nums[end]));
                 start++;
