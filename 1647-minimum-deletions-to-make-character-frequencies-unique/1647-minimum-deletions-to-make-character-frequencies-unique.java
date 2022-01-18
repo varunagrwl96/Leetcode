@@ -7,7 +7,7 @@ class Solution {
         int keep = freq[25], prev = keep;
         for (int i = 24; i >= 0 && freq[i] != 0 && prev != 0; i--) {
             prev = Math.min(freq[i], prev - 1);
-            keep += prev;
+            keep += prev; //keep keeps track of final string with unique freq
         }
         return s.length() - keep;
     }
