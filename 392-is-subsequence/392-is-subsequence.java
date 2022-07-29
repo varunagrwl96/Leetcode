@@ -3,8 +3,6 @@ class Solution {
         int m = s.length();
         int n = t.length();
         int i=0;
-        // if(m==0) return true;
-        // if(n==0) return false;
         for(int j=0;j<n && i<m;j++){
             if(s.charAt(i)==t.charAt(j)){
                 i++;
