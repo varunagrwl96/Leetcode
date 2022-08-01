@@ -31,3 +31,6 @@ class Solution {
         return head.next;
     }
 }
+
+//Time -> O(n+m)
+//Space -> O(1) coz only two pointers created
