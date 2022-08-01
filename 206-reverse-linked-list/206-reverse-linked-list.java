@@ -20,3 +20,5 @@ class Solution {
         return prev;
     }
 }
+//Time O(n)
+//Space O(1)
