@@ -17,7 +17,7 @@ public class Solution {
             slow=slow.next;
             fast=fast.next.next;
             if(slow==fast){
-                //cycle, find first node
+                //cycle found, find first node of cycle
                 return findFirstNode(slow,head);
             }
         }
@@ -39,3 +39,6 @@ public class Solution {
         return null;
     }
 }
+//k -> length of cycle
+//Time -> O(n+k) + O(k) + O(n) = O(n)
+//Space -> O(k)
