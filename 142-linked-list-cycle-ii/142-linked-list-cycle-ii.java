@@ -25,18 +25,23 @@ public class Solution {
     }
     
     public ListNode findFirstNode(ListNode node, ListNode head){
-        Set<ListNode> hashset = new HashSet();
-        while(!hashset.contains(node)){
-            hashset.add(node);
+        // Set<ListNode> hashset = new HashSet();
+        // while(!hashset.contains(node)){
+        //     hashset.add(node);
+        //     node=node.next;
+        // }
+        // while(head!=null){
+        //     if(hashset.contains(head)){
+        //         return head;
+        //     }
+        //     head=head.next;
+        // }
+        // return null;
+        while(head!=node){
+            head=head.next;
             node=node.next;
         }
-        while(head!=null){
-            if(hashset.contains(head)){
-                return head;
-            }
-            head=head.next;
-        }
-        return null;
+        return head;
     }
 }
 //k -> length of cycle
