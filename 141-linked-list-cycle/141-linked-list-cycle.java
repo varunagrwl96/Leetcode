@@ -23,3 +23,5 @@ public class Solution {
         return false;
     }
 }
+//Time -> O(n+k) , where k is cycle length
+//Space -> O(1)
