@@ -21,14 +21,10 @@ class Solution {
     List<Integer> ans = new ArrayList();
     public List<Integer> preorder(Node root) {
         if(root==null) return ans;
-        preorderTraversal(root);
-        return ans;
-    }
-    
-    public void preorderTraversal(Node root){
         ans.add(root.val);
         for(Node child : root.children){
             preorder(child);
         }
+        return ans;
     }
 }
