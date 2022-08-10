@@ -18,3 +18,5 @@ public class Solution extends VersionControl {
         return right;
     }
 }
+//Time - O(logn)
+//Space - O(1)
