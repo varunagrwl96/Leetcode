@@ -23,6 +23,7 @@ class Node {
 
 class Solution {
     public Node connect(Node root) {
+        //Start with level order traversal and then improved (current) soln
         if(root==null){
             return null;
         }
