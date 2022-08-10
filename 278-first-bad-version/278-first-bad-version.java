@@ -7,6 +7,8 @@ public class Solution extends VersionControl {
         int right = n;
         while(left<right){
             int mid = left + (right-left)/2;
+            // int mid = (left+right)/2; //TLE why?
+            // System.out.println(mid);
             if(isBadVersion(mid)){
                 right=mid;
             }else{
