@@ -16,3 +16,6 @@ class Solution {
         return -1;
     }
 }
+
+//Time - O(logn)
+//Space - O(1)
