@@ -14,7 +14,7 @@ class Solution {
             if(hashmap.get(c)%2==0){
                 ans= ans+hashmap.get(c);
             }else if(hashmap.get(c)/2>=1){
-                ans= ans+((int)(hashmap.get(c)/2))*2;
+                ans= ans+(hashmap.get(c)/2)*2;
                 hashmap.put(c,1);
                 odd=true;
             }
