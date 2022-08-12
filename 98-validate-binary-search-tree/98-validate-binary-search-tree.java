@@ -28,3 +28,7 @@ class Solution {
         return validate(root.left,low,root.val) && validate(root.right,root.val,high); 
     }
 }
+
+
+//Time - O(n)
+//Space - O(n) recursive stack
