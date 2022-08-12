@@ -23,7 +23,9 @@ class Solution {
         if(root==null){
             return true;
         }        
-        if((low!=null && low>=root.val) || (high!=null && high<=root.val)) return false;
+        if((low!=null && low>=root.val) || (high!=null && high<=root.val)){
+            return false;
+        }
         
         return validate(root.left,low,root.val) && validate(root.right,root.val,high); 
     }
