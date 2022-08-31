@@ -12,3 +12,5 @@ class Solution {
         return profit;
     }
 }
+//Time -> O(n)
+//Space -> O(1)
