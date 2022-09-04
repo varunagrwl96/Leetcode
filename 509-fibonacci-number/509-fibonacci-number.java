@@ -11,6 +11,8 @@ class Solution {
             b=sum;
         }
         return sum;
+// Time O(n)
+//Space O(1)
         
         // if(n<=1) return n;
         // int[] fib = new int[n+1];
