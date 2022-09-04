@@ -13,4 +13,6 @@ class Solution {
     }
 }
 
+//Time O(n)
+//Space O(n)
 //min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2])
