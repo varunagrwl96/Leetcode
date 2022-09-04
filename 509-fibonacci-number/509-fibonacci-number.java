@@ -1,14 +1,11 @@
 class Solution {
     public int fib(int n) {
-        if(n==0) return 0;
-        int fprevprev=0;
-        int fprev=1;
-        int fcurr=1;
+        int[] fib = new int[n+2];
+        fib[0]=0;
+        fib[1]=1;
         for(int i=2;i<=n;i++){
-            fcurr = fprev + fprevprev;
-            fprevprev=fprev;
-            fprev=fcurr;
+            fib[i]=fib[i-1]+fib[i-2];
         }
-        return fcurr;
+        return fib[n];
     }
 }
