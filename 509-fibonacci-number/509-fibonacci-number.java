@@ -10,3 +10,6 @@ class Solution {
         return fib[n];
     }
 }
+
+//Time O(n)
+//Space O(n)
