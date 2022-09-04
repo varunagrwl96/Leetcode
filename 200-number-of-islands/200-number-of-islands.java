@@ -27,3 +27,6 @@ class Solution {
         dfs(grid,i,j-1,visited);
     }
 }
+
+//Time -> O(m*n)
+// Space -> O(m*n) visited array
