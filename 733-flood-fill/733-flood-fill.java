@@ -18,3 +18,6 @@ class Solution {
         color(image,sr,sc-1,oldcolor,newcolor);
     }
 }
+
+//Time -> O(n)
+//Space -> O(n) recursive stack
