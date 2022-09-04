@@ -12,4 +12,5 @@ class Solution {
     }
 }
 
-// 1 2 3 5
+// Time O(n)
+// Space O(n)
