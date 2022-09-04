@@ -8,10 +8,10 @@ class Solution {
     }
     
     public void color(int[][] image, int sr, int sc,int oldcolor, int newcolor){
-        if(sr<0 || sr>=image.length || sc<0 || sc>=image[0].length || image[sr][sc]!=oldcolor){
+        if(sr<0 || sr>=image.length || sc<0 || sc>=image[0].length || image[sr][sc]!=oldcolor || image[sr][sc]==newcolor){
             return;
         }
-        if(image[sr][sc]==newcolor) return;
+        // if(image[sr][sc]==newcolor) return;
         image[sr][sc]=newcolor;
         color(image,sr+1,sc,oldcolor,newcolor);
         color(image,sr-1,sc,oldcolor,newcolor);
