@@ -1,7 +1,6 @@
 class Solution {
     public String minWindow(String s, String t) {
         HashMap<Character,Integer> hashmap = new HashMap();
-        String ans="";
         for(char c : t.toCharArray()){
             hashmap.put(c,hashmap.getOrDefault(c,0)+1);
         }
@@ -40,3 +39,5 @@ class Solution {
         return s.substring(head,head+len);
     }
 }
+//Time O(n)
+//Space O(1)
