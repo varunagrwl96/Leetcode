@@ -58,10 +58,13 @@ class Solution {
             while(counter==0){
                 char curr2 = s.charAt(left);
                 if(pmap.containsKey(curr2)){
-                    pmap.put(curr2,pmap.get(curr2)+1);
-                    if(pmap.get(curr2)>0){
-                        counter++;   
+                    if(pmap.get(curr2)==0){
+                        counter++;
                     }
+                    pmap.put(curr2,pmap.get(curr2)+1);
+                    // if(pmap.get(curr2)>0){
+                    //     counter++;   
+                    // }
                 }
                 if(right-left==plength){
                     ans.add(left);
