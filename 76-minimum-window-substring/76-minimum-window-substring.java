@@ -39,5 +39,5 @@ class Solution {
         return s.substring(head,head+len);
     }
 }
-//Time O(n)
+//Time O(s+t)
 //Space O(1)
