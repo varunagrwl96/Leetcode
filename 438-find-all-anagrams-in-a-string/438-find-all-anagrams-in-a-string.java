@@ -4,13 +4,6 @@ class Solution {
         int plength = p.length();
         List<Integer> ans = new ArrayList();
         HashMap<Character,Integer> smap = new HashMap();
-        // for(char c : s.toCharArray()){
-        //     if(smap.containsKey(c)){
-        //         smap.put(c,smap.get(c)+1);
-        //     }else{
-        //         smap.put(c,1);
-        //     }
-        // }
         HashMap<Character,Integer> pmap = new HashMap();
         for(char c : p.toCharArray()){
             if(pmap.containsKey(c)){
@@ -39,43 +32,8 @@ class Solution {
             }
         }
         return ans;
-        
-        // for(char c : a.toCharArray()){
-        //     if(amap.containsKey(c)){
-        //         amap.put(c,amap.get(c)+1);
-        //     }else{
-        //         amap.put(c,1);
-        //     }
-        // }
-        // for(int i=0;i<=m-n;i++){
-        //     if(isAnagram(s.substring(i,i+n),p)){
-        //         ans.add(i);
-        //     }
-        // }
-        // return ans;
-    }
-    
-    public boolean isAnagram(String a, String b){
-        HashMap<Character,Integer> amap = new HashMap();
-        for(char c : a.toCharArray()){
-            if(amap.containsKey(c)){
-                amap.put(c,amap.get(c)+1);
-            }else{
-                amap.put(c,1);
-            }
-        }
-        for(char c : b.toCharArray()){
-            if(amap.containsKey(c)){
-                if(amap.get(c)>1){
-                    amap.put(c,amap.get(c)-1);
-                }else{
-                    amap.remove(c);
-                }
-            }else{
-                return false;
-            }
-        }
-        if(amap.size()>0) return false;
-        return true;
     }
 }
+
+//Time O(ns+np)
+//Space O(1) Space is constant 26 letters
