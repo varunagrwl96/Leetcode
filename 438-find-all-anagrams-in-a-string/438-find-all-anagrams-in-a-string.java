@@ -10,11 +10,7 @@ class Solution {
         }
         for(int i=0;i<slength;i++){
             char curr = s.charAt(i);
-            if(smap.containsKey(curr)){
-                smap.put(curr,smap.get(curr)+1);
-            }else{
-                smap.put(curr,1);
-            }
+            smap.put(curr,smap.getOrDefault(curr,0)+1);
             if(i>=plength){
                 curr = s.charAt(i-plength);
                 if(smap.get(curr)>1){
