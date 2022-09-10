@@ -26,3 +26,5 @@ class Solution {
         return length;
     }
 }
+//Time O(n)
+//Space O(1) 26 letters
