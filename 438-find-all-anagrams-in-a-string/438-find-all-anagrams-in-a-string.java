@@ -6,11 +6,7 @@ class Solution {
         HashMap<Character,Integer> smap = new HashMap();
         HashMap<Character,Integer> pmap = new HashMap();
         for(char c : p.toCharArray()){
-            if(pmap.containsKey(c)){
-                pmap.put(c,pmap.get(c)+1);
-            }else{
-                pmap.put(c,1);
-            }
+            pmap.put(c,pmap.getOrDefault(c,0)+1);
         }
         for(int i=0;i<slength;i++){
             char curr = s.charAt(i);
