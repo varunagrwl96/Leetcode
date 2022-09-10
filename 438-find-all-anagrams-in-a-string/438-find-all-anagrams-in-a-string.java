@@ -1,71 +1,37 @@
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
-        int slength = s.length();
         int plength = p.length();
-        List<Integer> ans = new ArrayList();
-        HashMap<Character,Integer> smap = new HashMap();
+        int slength = s.length();
         HashMap<Character,Integer> pmap = new HashMap();
-        for(char c : p.toCharArray()){
+        HashMap<Character,Integer> smap = new HashMap();
+        for(char c: p.toCharArray()){
             pmap.put(c,pmap.getOrDefault(c,0)+1);
         }
-        for(int i=0;i<slength;i++){
-            char curr = s.charAt(i);
-            smap.put(curr,smap.getOrDefault(curr,0)+1);
-            if(i>=plength){
-                curr = s.charAt(i-plength);
-                if(smap.get(curr)>1){
-                    smap.put(curr,smap.get(curr)-1);
+        List<Integer> ans = new ArrayList();
+        int begin=0;
+        int end=0;
+        while(end<slength){
+            char c2=s.charAt(end);
+            smap.put(c2,smap.getOrDefault(c2,0)+1);
+            // if(smap.equals(pmap)){
+            //     ans.add(begin);
+            // }
+            while(end-begin+1>plength){
+                char cbeg=s.charAt(begin);
+                if(smap.get(cbeg)>1){
+                    smap.put(cbeg,smap.get(cbeg)-1);
                 }else{
-                    smap.remove(curr);
+                    smap.remove(cbeg);
                 }
+                begin++;
             }
             if(smap.equals(pmap)){
-                ans.add(i-plength+1);
+                ans.add(begin);
             }
+            end++;
         }
         return ans;
     }
-        
-//         int slength=s.length();
-//         int plength = p.length();
-//         List<Integer> ans = new ArrayList();
-//         HashMap<Character,Integer> pmap = new HashMap();
-//         for(char c : p.toCharArray()){
-//             if(pmap.containsKey(c)){
-//                 pmap.put(c,pmap.get(c)+1);
-//             }else{
-//                 pmap.put(c,1);
-//             }
-//         }
-//         int left=0, right=0;
-//         int counter = pmap.size();
-//         while(right<slength){
-//             char curr = s.charAt(right);
-//             if(pmap.containsKey(curr)){
-//                 pmap.put(curr,pmap.get(curr)-1);
-//                 if(pmap.get(curr)==0){
-//                     counter--;
-//                 }
-//             }
-//             right++;
-//             while(counter==0){
-//                 char curr2 = s.charAt(left);
-//                 if(pmap.containsKey(curr2)){
-//                     if(pmap.get(curr2)==0){
-//                         counter++;
-//                     }
-//                     pmap.put(curr2,pmap.get(curr2)+1);
-//                 }
-//                 if(right-left==plength){
-//                     ans.add(left);
-//                 }
-//                 left++;
-//             }
-
-//         }
-//         return ans;
-//     }
 }
-
-//Time O(ns+np)
-//Space O(1) Space is constant 26 letters
+//Time O(n)
+//Space O(1)
