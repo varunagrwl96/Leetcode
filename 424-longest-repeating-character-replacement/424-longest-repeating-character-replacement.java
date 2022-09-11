@@ -5,10 +5,12 @@ class Solution {
         int end=0;
         int ans=0;
         HashMap<Character,Integer> count = new HashMap();
+        int maxFreq=0;
         while(end<slength){
             char c=s.charAt(end);
             count.put(c,count.getOrDefault(c,0)+1);
-            int maxFreq = getMostFreqCount(count);
+            // int maxFreq = getMostFreqCount(count);
+            maxFreq = Math.max(maxFreq,count.get(c));
             if(end-begin+1-maxFreq <= k){  //len of window - maxfreq <= k (valid)
                 ans=Math.max(ans,end-begin+1);
             }else{
