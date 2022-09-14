@@ -31,3 +31,5 @@ class Solution {
         return bulls+"A"+cows+"B";
     }
 }
+//Time O(2n)
+//Space O(n) n-> letters in guess
