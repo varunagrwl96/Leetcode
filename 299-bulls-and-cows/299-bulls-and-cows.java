@@ -8,22 +8,12 @@ class Solution {
         }
         for(int i=0;i<guess.length();i++){
             char c= guess.charAt(i);
-            if(hashmap.containsKey(c)){
-                if(c==secret.charAt(i)){
-                    bulls++;
-                    if(hashmap.get(c)>1){
-                        hashmap.put(c,hashmap.get(c)-1);
-                    }else{
-                        hashmap.remove(c);
-                    }
-                // }else{
-                //     // cows++;
-                // }
-                // if(hashmap.get(c)>1){
-                //     hashmap.put(c,hashmap.get(c)-1);
-                // }else{
-                //     hashmap.remove(c);
-                // }
+            if(hashmap.containsKey(c) && c==secret.charAt(i)){
+                bulls++;
+                if(hashmap.get(c)>1){
+                    hashmap.put(c,hashmap.get(c)-1);
+                }else{
+                    hashmap.remove(c);
                 }
             }
         }
