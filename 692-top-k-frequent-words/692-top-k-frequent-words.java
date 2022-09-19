@@ -10,3 +10,5 @@ class Solution {
         return candidates.subList(0,k);
     }
 }
+//Time O(NlogN)
+//Space O(N)
