@@ -8,7 +8,7 @@ class Solution {
         }
         List<String> candidates = new ArrayList<>(hashmap.keySet());
         // Collections.reverseOrder(candidates);
-        Collections.sort(candidates, (i1,i2) -> hashmap.get(i1).equals(hashmap.get(i2))? i1.compareTo(i2) : hashmap.get(i2)-hashmap.get(i1));
+        Collections.sort(candidates, (i1,i2) -> hashmap.get(i1).equals(hashmap.get(i2))? i1.compareTo(i2) : hashmap.get(i2).compareTo(hashmap.get(i1)));
         // for(String x : candidates){
         //     System.out.print(x);
         // }
