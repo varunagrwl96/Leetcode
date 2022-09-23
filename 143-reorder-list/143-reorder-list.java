@@ -42,3 +42,6 @@ class Solution {
         }
     }
 }
+
+//O(N)
+//O(1)
