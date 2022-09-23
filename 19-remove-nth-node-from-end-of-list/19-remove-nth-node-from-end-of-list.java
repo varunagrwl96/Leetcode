@@ -13,8 +13,6 @@ class Solution {
         int count=0;
         ListNode dummy = new ListNode(-1);
         dummy.next=head;
-        // ListNode headtemp=new ListNode(-1);
-        // ListNode ans = head;
         while(head!=null){
             count++;
             head=head.next;
@@ -28,7 +26,6 @@ class Solution {
             prev=headtemp;
             headtemp=headtemp.next;
         }
-        // headtemp.next = headtemp.next.next;
         prev.next=headtemp.next;
         return dummy.next;
     }
