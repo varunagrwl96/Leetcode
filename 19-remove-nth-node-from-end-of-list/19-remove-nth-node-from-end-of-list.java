@@ -28,3 +28,5 @@ class Solution {
         return dummy.next;
     }
 }
+//O (N) 1 pass
+//O (1)
