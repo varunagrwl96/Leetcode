@@ -35,15 +35,14 @@ class Solution {
         if(i<0||i>=board.length || j<0 || j>=board[0].length || visited[i][j]){
             return;
         }
-        
         if(p.children[board[i][j]-'a']==null){
             return;
         }
+        visited[i][j]=true;
         if(p.children[board[i][j]-'a'].word!=null){
             ans.add(p.children[board[i][j]-'a'].word);
             p.children[board[i][j]-'a'].word=null;
         }
-        visited[i][j]=true;
         
         dfs(p.children[board[i][j]-'a'],i+1,j,board,visited,ans);
         dfs(p.children[board[i][j]-'a'],i-1,j,board,visited,ans);
