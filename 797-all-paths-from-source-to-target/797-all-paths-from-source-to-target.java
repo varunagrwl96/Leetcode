@@ -6,13 +6,15 @@ class Solution {
         // for(int i=0;i<graph.length;i++){
         //     hashmap.put(i,new ArrayList())
         // }
-        LinkedList<Integer> currans = new LinkedList();
-        currans.addLast(0);
+        // LinkedList<Integer> currans = new LinkedList();
+        List<Integer> currans = new ArrayList();
+        // currans.addLast(0);
+        currans.add(0);
         paths(graph,0,graph.length-1,currans);
         return ans;
     }
     
-    public void paths(int[][] graph, int node, int end, LinkedList<Integer> currans){
+    public void paths(int[][] graph, int node, int end, List<Integer> currans){
         
         if(node==end){
             ans.add(new ArrayList<Integer>(currans));
@@ -20,9 +22,11 @@ class Solution {
         }
         
         for(int each : graph[node]){
-            currans.addLast(each);
+            // currans.addLast(each);
+            currans.add(each);
             paths(graph,each,end,currans);
-            currans.removeLast();
+            // currans.removeLast();
+            currans.remove(currans.size()-1);
         }
     }
 }
