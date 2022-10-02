@@ -1,6 +1,6 @@
 class Solution {
     
-    boolean pathExists=false;
+    boolean found=false;
     public boolean validPath(int n, int[][] edges, int source, int destination) {
         if(n==1) return true;
         HashMap<Integer,List<Integer>> hashmap = new HashMap();
@@ -20,16 +20,16 @@ class Solution {
         }
         boolean[] visited = new boolean[n];
         dfs(hashmap,visited,source,destination);
-        return pathExists;
+        return found;
     }
     
     public void dfs(HashMap<Integer,List<Integer>> hashmap, boolean[] visited, int source,int destination){
         
-        if(visited[source]) return;
+        if(visited[source] || found) return;
         visited[source]=true;
         List<Integer> neighbours = hashmap.get(source);
         if(neighbours.contains(destination)){
-            pathExists=true;
+            found=true;
             return;
         }
         for(int neighbour : neighbours){
