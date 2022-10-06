@@ -31,3 +31,5 @@ class Solution {
         return sign*ans;
     }
 }
+//O(n)
+//O(1)
