@@ -4,13 +4,16 @@ class Solution {
         for(int i=0;i<ppid.size();i++){
             if(hashmap.containsKey(ppid.get(i))){
                 int parent = ppid.get(i);
-                List<Integer> children = hashmap.get(parent);
-                children.add(pid.get(i));
-                hashmap.put(parent,children);
+                hashmap.get(parent).add(pid.get(i));
+                // List<Integer> children = hashmap.get(parent);
+                // children.add(pid.get(i));
+                // hashmap.put(parent,hashmap.get(parent));
             }else{
-                List<Integer> children = new ArrayList();
-                children.add(pid.get(i));
-                hashmap.put(ppid.get(i),children);
+                int parent = ppid.get(i);
+                hashmap.put(parent,new ArrayList(Arrays.asList(pid.get(i))));
+                // List<Integer> children = new ArrayList();
+                // children.add(pid.get(i));
+                // hashmap.put(ppid.get(i),children);
             }
         }
         List<Integer> ans = new ArrayList();
