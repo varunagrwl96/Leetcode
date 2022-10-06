@@ -16,4 +16,5 @@ class Solution {
         }
     }
 }
-//Optimize
+//O(logn)
+//O(1)
