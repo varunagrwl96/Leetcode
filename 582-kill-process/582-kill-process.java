@@ -5,15 +5,9 @@ class Solution {
             if(hashmap.containsKey(ppid.get(i))){
                 int parent = ppid.get(i);
                 hashmap.get(parent).add(pid.get(i));
-                // List<Integer> children = hashmap.get(parent);
-                // children.add(pid.get(i));
-                // hashmap.put(parent,hashmap.get(parent));
             }else{
                 int parent = ppid.get(i);
                 hashmap.put(parent,new ArrayList(Arrays.asList(pid.get(i))));
-                // List<Integer> children = new ArrayList();
-                // children.add(pid.get(i));
-                // hashmap.put(ppid.get(i),children);
             }
         }
         List<Integer> ans = new ArrayList();
