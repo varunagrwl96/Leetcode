@@ -25,8 +25,5 @@ class Solution {
         return ans;
     }
 }
-// 3 1,5
-// 0 3
-// 5 10
-
-//5,10
+//O(n)
+//O(n)
