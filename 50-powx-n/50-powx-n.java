@@ -1,9 +1,7 @@
 class Solution {
     public double myPow(double x, int n) {
-        // long N = n;
         if(n<0){
             x=1/x;
-            // N=-N;
             n=-n;
         }
         return recursivePow(x,n);
