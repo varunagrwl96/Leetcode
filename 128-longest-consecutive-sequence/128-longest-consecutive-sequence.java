@@ -20,3 +20,5 @@ class Solution {
         return maxstreak;
     }
 }
+//O(n)
+//O(n)
