@@ -24,3 +24,5 @@ class Solution {
         return Math.max(longestStreak, currentStreak);
     }
 }
+// O(nlogn)
+// O(1)
