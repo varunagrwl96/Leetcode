@@ -7,7 +7,7 @@ class Solution {
         }
         int maxstreak=0;
         for(int num : hashset){
-            if(!hashset.contains(num-1)){
+            if(!hashset.contains(num-1)){ //idea - For a num in set, if num-1 exists, then we have already considered it as part of streak, if it doesnt exist -> then check for the streak
                 int curr = num;
                 int streak=1;
                 while(hashset.contains(curr+1)){
