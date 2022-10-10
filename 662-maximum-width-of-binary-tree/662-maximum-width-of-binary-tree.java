@@ -39,3 +39,5 @@ class Solution {
         return width;
     }
 }
+//O(n)
+//O(n)
