@@ -40,10 +40,6 @@ class Solution {
             this.result = new ArrayList(ans);
             return true;
         }
-        
-        // if(!this.adjList.containsKey(src)){
-        //     return false;
-        // }
         List<String> neighbours = this.adjList.get(src);
         if(neighbours==null || neighbours.size()==0){
             return false;
