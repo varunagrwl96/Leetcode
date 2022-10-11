@@ -41,13 +41,13 @@ class Solution {
             return true;
         }
         
-        if(!this.adjList.containsKey(src)){
-            return false;
-        }
-        List<String> neighbours = this.adjList.get(src);
-        // if(neighbours==null || neighbours.size()==0){
+        // if(!this.adjList.containsKey(src)){
         //     return false;
         // }
+        List<String> neighbours = this.adjList.get(src);
+        if(neighbours==null || neighbours.size()==0){
+            return false;
+        }
         
         boolean[] visitarr = this.visitMap.get(src);
         for(int i=0;i<neighbours.size();i++){
