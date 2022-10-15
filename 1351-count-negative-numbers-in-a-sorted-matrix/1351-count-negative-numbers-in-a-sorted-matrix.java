@@ -16,7 +16,8 @@ class Solution {
         return count;
     }
 }
-
+//O(m+n)
+//O(1)
 // 4 3 2 -1
 // 3 2 1 -1
 // 1 1 -1 -2
