@@ -3,11 +3,6 @@ class Solution {
     int max=9;
     int min=0;
     public int[] numsSameConsecDiff(int n, int k) {
-        // int digits=n;
-        // Integer first=1;
-        // Integer rest=0;
-        // int max=9;
-        // int min=0;
         Queue<Integer> queue = new LinkedList();
         queue.add(1);
         queue.add(2);
@@ -20,7 +15,6 @@ class Solution {
         queue.add(9);
         Queue<Integer> output = recursive(queue,--n,k);
         int[] ans = output.stream().mapToInt(i->i).toArray();
-        // List<Integer> ans = output.toArray();
         return ans;
     }
     
