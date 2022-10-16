@@ -34,4 +34,4 @@ class Solution {
     }
 }
 //O(n^2)
-//O(n)
+//O(1)
