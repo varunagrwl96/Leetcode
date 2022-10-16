@@ -1,34 +1,37 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        Arrays.sort(nums);
+        int n = nums.length;
         List<List<Integer>> ans = new ArrayList();
-        for(int i=0;i<nums.length;i++){
-            if(i==0|| nums[i]!=nums[i-1]){
-                twoSum(i,nums,ans);
+        Arrays.sort(nums); //Important
+        for(int i=0;i<n;i++){
+            if(i==0 || nums[i-1]!=nums[i]){ //duplicates
+                twosum(i,nums,ans);
             }
         }
         return ans;
     }
     
-    public void twoSum(int i, int[] nums, List<List<Integer>> ans){
-        int curr = nums[i];
-        int start=i+1;
+    public void twosum(int index, int[] nums, List<List<Integer>> ans){
+        int start=index+1;
         int end = nums.length-1;
+        int sum = 0-nums[index];
         while(start<end){
-            if(curr + nums[start]+nums[end]==0){
-                ans.add(Arrays.asList(curr,nums[start],nums[end]));
+            if(nums[start] + nums[end]==sum){
+                ans.add(Arrays.asList(nums[start],nums[end],nums[index]));
                 start++;
                 end--;
-                while(start<end && nums[start]==nums[start-1]){
+                while(start<end && nums[start]==nums[start-1]){ //dups
                     start++;
                 }
-            }else if(curr + nums[start]+nums[end]<0){
-                start++;
-            }else{
+            }
+            else if(nums[start] + nums[end]>sum){
                 end--;
+            }
+            else{
+                start++;
             }
         }
     }
 }
-
-// -4 -1 -1 0 1 2
+//O(n^2)
+//O(n)
