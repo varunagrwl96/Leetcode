@@ -19,7 +19,7 @@ class Solution {
         queue.add(8);
         queue.add(9);
         Queue<Integer> output = recursive(queue,--n,k);
-        int[] ans = output.stream().mapToInt(Integer::intValue).toArray();
+        int[] ans = output.stream().mapToInt(i->i).toArray();
         // List<Integer> ans = output.toArray();
         return ans;
     }
