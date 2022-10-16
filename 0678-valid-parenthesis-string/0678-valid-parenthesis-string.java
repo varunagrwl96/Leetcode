@@ -1,43 +1,43 @@
 class Solution {
     public boolean checkValidString(String s) {
-        int count=0;
-        int stars=0;
-        int n=s.length();
-        for(int i=0;i<s.length();i++){
-            char curr = s.charAt(i);
-            if(curr=='('){
-                count++;   
-            }else if(curr=='*'){
-                stars++;
-            }else if(curr==')'){
-                if(count>0){
-                    count--;
-                }else if(stars>0){
-                    stars--;
+        char[] charArray = s.toCharArray();
+        int size = charArray.length;
+        int count_star = 0;
+        int sum = 0;
+        for(int i=0;i<size;i++){
+            if(charArray[i]=='(' ){
+                sum++;
+            }else if(charArray[i]=='*'){
+                count_star++;
+            }else{
+                if(sum>0){
+                    sum--;
+                }else if(count_star>0){
+                    count_star--;
                 }else{
                     return false;
                 }
             }
         }
-        //reverse check
-        count=0;
-        stars=0;
-        for(int i=n-1;i>=0;i--){
-            char curr = s.charAt(i);
-            if(curr==')'){
-                count++;   
-            }else if(curr=='*'){
-                stars++;
-            }else if(curr=='('){
-                if(count>0){
-                    count--;
-                }else if(stars>0){
-                    stars--;
+        
+        sum=0;
+        count_star=0;
+        for(int i=size-1;i>=0;i--){
+            if(charArray[i]==')' ){
+                sum++;
+            }else if(charArray[i]=='*'){
+                count_star++;
+            }else{
+                if(sum>0){
+                    sum--;
+                }else if(count_star>0){
+                    count_star--;
                 }else{
                     return false;
                 }
             }
         }
-        return true;
+        return true; 
+            
     }
 }
