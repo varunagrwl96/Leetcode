@@ -46,27 +46,5 @@ class Solution {
         // return newq;
     }
 }
-        
-//         List<Integer> ans = new ArrayList();
-//         while(digits>0){
-//             if(digits==n){
-//                 int curr_max=first+k;
-//                 int curr_min=first-k;
-//                 if(curr_min>=min){
-//                     ans.add(curr_min);
-//                 }
-//                 if(curr_max<=max){
-//                     ans.add(curr_max);
-//                 }
-//             }else{
-//                 int curr_max=rest+k;
-//                 int curr_min=rest-k;
-//                 if(curr_min>=min){
-//                 }
-//                 if(curr_max<=max){
-                    
-//                 }
-//             }
-//         }
-//     }
-// }
+//O(2^N)
+//O(2^N)
