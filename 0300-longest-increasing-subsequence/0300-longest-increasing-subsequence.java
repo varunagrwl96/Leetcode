@@ -19,3 +19,5 @@ class Solution {
         return longest;
     }
 }
+//O(N^2)
+//O(N)
