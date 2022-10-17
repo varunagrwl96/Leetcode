@@ -1,21 +1,24 @@
 class Solution {
     public int maximumPopulation(int[][] logs) {
-        int[] ages = new int[100];
-        for(int i=0;i<logs.length;i++){
-            int birth = logs[i][0];
-            int death = logs[i][1];
-            for(int j=birth;j<death;j++){
-                ages[j-1950]+=1;
+        
+        int[] year = new int[2051];        
+		// O(n) -> n is log.length
+        for(int[] log : logs){
+            year[log[0]] += 1;
+            year[log[1]] -= 1;
+        }
+        
+        int maxNum = year[1950], maxYear = 1950;
+		// O(100) -> 2050 - 1950 = 100
+        for(int i = 1951; i < year.length; i++){
+            year[i] += year[i - 1];  // Generating Prefix Sum
+            
+            if(year[i] > maxNum){
+                maxNum = year[i];
+                maxYear = i;
             }
         }
-        int max=ages[0];
-        int index=0;
-        for(int i=1;i<ages.length;i++){
-            if(ages[i]>max){
-                max=ages[i];
-                index=i;
-            }
-        }
-        return index+1950;
+        
+        return maxYear;
     }
 }
