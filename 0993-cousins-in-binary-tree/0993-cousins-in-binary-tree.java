@@ -14,26 +14,37 @@
  * }
  */
 class Solution {
-    int xdepth=0,ydepth=0;
-    TreeNode xparent,yparent;
     public boolean isCousins(TreeNode root, int x, int y) {
-        recursive(root,x,y,0,null);
-        return (xdepth==ydepth && xparent!=yparent);
-    }
-    
-    public void recursive(TreeNode root, int x, int y, int depth, TreeNode parent){
-        if(root==null){
-            return;
+        Queue<TreeNode> queue = new LinkedList();
+        queue.add(root);
+        int xdepth=-1;
+        int ydepth=-1;
+        int depth=0;
+        while(!queue.isEmpty()){
+            int size=queue.size();
+            for(int i=0;i<size;i++){
+                TreeNode curr = queue.poll();
+                if(curr.val==x){
+                    xdepth=depth;
+                }
+                if(curr.val==y){
+                    ydepth=depth;
+                }
+                if(curr.left!=null && curr.right!=null){
+                    if(curr.left.val==x && curr.right.val==y) return false;
+                    if(curr.left.val==y && curr.right.val==x) return false;
+                }
+                if(curr.left!=null){
+                    queue.add(curr.left);
+                }
+                if(curr.right!=null){
+                    queue.add(curr.right);
+                }
+            }
+            depth++;
         }
-        if(root.val==x){
-            xparent=parent;
-            xdepth=depth;
-        }
-        if(root.val==y){
-            yparent=parent;
-            ydepth=depth;
-        }
-        recursive(root.left,x,y,depth+1,root);
-        recursive(root.right,x,y,depth+1,root);
+        return xdepth==ydepth;
     }
 }
+//O(N)
+//O(N)
