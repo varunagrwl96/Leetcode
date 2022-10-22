@@ -28,7 +28,8 @@ class Solution {
         if(root.val==x){
             xparent=parent;
             xdepth=depth;
-        }else if(root.val==y){
+        }
+        if(root.val==y){
             yparent=parent;
             ydepth=depth;
         }
