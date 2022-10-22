@@ -15,13 +15,13 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        return recursive(root,0);
+        return dfs(root,0);
     }
     
-    public int recursive(TreeNode root, int depth){
+    public int dfs(TreeNode root, int depth){
         if(root==null){
             return 0;
         }
-        return Math.max(recursive(root.left,depth),recursive(root.right,depth)) +1;
+        return Math.max(dfs(root.left,depth+1),dfs(root.right,depth+1))+1;
     }
 }
