@@ -14,7 +14,7 @@ class Solution {
             sofar.add(nums[i]);
             ans.add(new ArrayList(sofar));
             generate(nums,i+1,sofar);
-            sofar.removeLast();
+            sofar.removeLast(); //if u use arraylist -> arraylist.remove(list.size()-1)
         }
     }
 }
