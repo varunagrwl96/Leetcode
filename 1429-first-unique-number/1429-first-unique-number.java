@@ -1,7 +1,7 @@
 class FirstUnique {
     
     LinkedHashSet<Integer> set;
-    HashSet<Integer> dups;
+    HashSet<Integer> dups; //Or hashmap for easier if conditions in add
     public FirstUnique(int[] nums) {
         set = new LinkedHashSet();
         dups = new HashSet();
