@@ -1,10 +1,10 @@
 class FirstUnique {
     
     LinkedHashSet<Integer> set;
-    HashMap<Integer,Boolean> isdup;
+    HashSet<Integer> dups;
     public FirstUnique(int[] nums) {
         set = new LinkedHashSet();
-        isdup = new HashMap();
+        dups = new HashSet();
         for(int num : nums){
             this.add(num);
         }
@@ -18,12 +18,13 @@ class FirstUnique {
     }
     
     public void add(int value) {
-        if(isdup.containsKey(value)){
-            isdup.put(value,true);
+        if(dups.contains(value)){
+            return;
+        }
+        boolean added = set.add(value);
+        if(!added){
+            dups.add(value);
             set.remove(value);
-        }else{
-            isdup.put(value,false);
-            set.add(value);
         }
     }
 }
