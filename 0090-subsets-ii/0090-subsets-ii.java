@@ -16,7 +16,7 @@ class Solution {
         }
         
         for(int i=index; i<nums.length;i++){
-            if(i!=index && nums[i]==nums[i-1]){
+            if(i!=index && nums[i]==nums[i-1]){ //i!=index needed for 144, 14 calls recursion with next index as 4, it should not be skipped since nums[i-1]=nums[i] but it is a valid subset
                 continue;
             }
             sofar.add(nums[i]);
