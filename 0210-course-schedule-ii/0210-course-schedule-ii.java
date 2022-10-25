@@ -40,7 +40,7 @@ class Solution {
                 }
             }
         }
-        if(index!=numCourses){
+        if(index!=numCourses){ //comparing index with numcourses or totalremovals with prereqs length
             return new int[0];
         }else{
             return ans;
