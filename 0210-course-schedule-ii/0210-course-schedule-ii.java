@@ -40,7 +40,7 @@ class Solution {
                 }
             }
         }
-        if(index!=numCourses){ //comparing index with numcourses or totalremovals with prereqs length
+        if(index!=numCourses){ //comparing index with numcourses or totalremovals with prereqs length, do not compare ans length with numcourses coz it is initialized with zero and size will be something even if there were no nodes with zero indegree
             return new int[0];
         }else{
             return ans;
