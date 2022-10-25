@@ -9,3 +9,10 @@ class Solution {
         return res;
     }
 }
+
+// We have 4 plans:
+
+// kill 3 biggest elements
+// kill 2 biggest elements + 1 smallest elements
+// kill 1 biggest elements + 2 smallest elements
+// kill 3 smallest elements
