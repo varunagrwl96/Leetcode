@@ -40,7 +40,7 @@ class Solution {
                 }
             }
         }
-        if(totalremovals!=prerequisites.length){
+        if(index!=numCourses){
             return new int[0];
         }else{
             return ans;
