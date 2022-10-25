@@ -1,66 +1,67 @@
 class Solution {
-    
-    HashMap<Integer,Node> hashmap = new HashMap();
-    
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         
         
+        HashMap<Integer,GNode> hashmap = new HashMap();
+        
         for(int i=0;i<numCourses;i++){
-            getNode(i);
+            createGNode(i,hashmap);
         }
         
         for(int[] pre : prerequisites){
-            int prev=pre[1];
-            int next=pre[0];
-            Node prevNode = getNode(prev);
-            Node nextNode = getNode(next);
-            prevNode.outlist.add(next);
-            nextNode.indegree +=1;
+            GNode next = createGNode(pre[0],hashmap);
+            GNode prev = createGNode(pre[1],hashmap);
+            prev.outdegree.add(pre[0]);
+            next.indegree+=1;
         }
         
-        List<Integer> zerodegree = new ArrayList();
-        for(int key : hashmap.keySet()){
-            if(hashmap.get(key).indegree==0){
-                zerodegree.add(key);
+        List<Integer> zerodegree= new ArrayList();
+        
+        for(Map.Entry<Integer,GNode> entry : hashmap.entrySet()){
+            if(entry.getValue().indegree==0){
+                zerodegree.add(entry.getKey());
             }
         }
         
-        List<Integer> ans = new ArrayList();
         int totalremovals=0;
+        int[] ans = new int[numCourses];
+        int index=0;
+        
         while(zerodegree.size()>0){
-            Integer curr = zerodegree.remove(0);
-            ans.add(curr);
-            for(Integer nei : hashmap.get(curr).outlist){
-                Node neinode = hashmap.get(nei);
-                neinode.indegree-=1;
+            Integer val = zerodegree.remove(0);
+            ans[index++]=val;
+            GNode node = hashmap.get(val);
+            for(Integer outnodeCourse : node.outdegree){
+                GNode outnode = hashmap.get(outnodeCourse);
+                outnode.indegree--;
                 totalremovals++;
-                if(neinode.indegree==0){
-                    zerodegree.add(nei);
+                if(outnode.indegree==0){
+                    zerodegree.add(outnodeCourse);
                 }
             }
         }
-        if(totalremovals==prerequisites.length){
-            return ans.stream().mapToInt(i->i).toArray();
-        }else{
+        if(totalremovals!=prerequisites.length){
             return new int[0];
+        }else{
+            return ans;
         }
     }
     
-    public Node getNode(int val){
-        Node node=null;
-        if(hashmap.containsKey(val)){
-            return hashmap.get(val);
+    public GNode createGNode(int course, HashMap<Integer,GNode> hashmap){
+        GNode node=null;
+        if(hashmap.containsKey(course)){
+            node = hashmap.get(course);
         }else{
-            node = new Node();
+            node = new GNode();
+            node.outdegree=new ArrayList<Integer>();
             node.indegree=0;
-            node.outlist=new ArrayList();
-            hashmap.put(val,node);
+            hashmap.put(course,node);
         }
         return node;
     }
-    
-class Node{
-    Integer indegree;
-    List<Integer> outlist;
 }
+
+class GNode{
+    Integer indegree;
+    List<Integer> outdegree;
 }
