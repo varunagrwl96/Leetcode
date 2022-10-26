@@ -1,5 +1,7 @@
 public class Solution {
    public boolean removeOnes(int[][] g) {
+       //Swap each col in first row to get zero.
+        //After this all rows must have same values else we cant have zero matrix
       int m = g.length, n = g[0].length;
       
       for(int j=0;j<n;j++){
