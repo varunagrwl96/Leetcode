@@ -5,10 +5,12 @@ class Solution {
         int ans = 0;
 
         while (i <= j) {
-            ans++;
-            if (people[i] + people[j] <= limit)
+            // ans++;
+            if (people[i] + people[j] <= limit){
                 i++;
+            }
             j--;
+            ans++;
         }
 
         return ans;
