@@ -15,17 +15,24 @@
  */
 class Solution {
     public void flatten(TreeNode root) {
-        //Morris Traversal - idea is you can fit the entire left subtree in between the root and the right subtree. So if there is a left subtree, you find the right most node of that left subtree and add that in between the root and right subtree.
-        TreeNode curr = root;
-        while (curr != null) {
-            if (curr.left != null) {
-                TreeNode runner = curr.left;
-                while (runner.right != null) runner = runner.right;
-                runner.right = curr.right;
-                curr.right = curr.left;
-                curr.left = null;
-            }
-            curr = curr.right;
+        if (root == null) {
+            return;
         }
+
+		// left subtree
+        flatten(root.left);
+		// right subtree
+        flatten(root.right);
+
+        TreeNode temp = root.right;
+        root.right = root.left;
+        root.left = null;
+
+        // find the farest right node.
+        while (root.right != null) {
+            root = root.right;
+        }
+
+        root.right = temp;
     }
 }
