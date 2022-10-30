@@ -14,31 +14,18 @@
  * }
  */
 class Solution {
-    String flat="";
-    int pos=0;
-    public void flatten(TreeNode root) {        
-        preorder(root);
-        TreeNode roottemp = root;
-        String[] flat_split = flat.split(",");
-        for(int i=1;i<flat_split.length;i++){
-            String x = flat_split[i];
-            if(x.equals("null")){
-                continue;
-            }else{
-                roottemp.right = new TreeNode(Integer.parseInt(x));
-                roottemp.left=null;
-                roottemp=roottemp.right;
+    public void flatten(TreeNode root) {
+        //Morris Traversal - idea is you can fit the entire left subtree in between the root and the right subtree. So if there is a left subtree, you find the right most node of that left subtree and add that in between the root and right subtree.
+        TreeNode curr = root;
+        while (curr != null) {
+            if (curr.left != null) {
+                TreeNode runner = curr.left;
+                while (runner.right != null) runner = runner.right;
+                runner.right = curr.right;
+                curr.right = curr.left;
+                curr.left = null;
             }
+            curr = curr.right;
         }
-    }
-    
-    public void preorder(TreeNode root){
-        if(root==null){
-            flat+="null,";
-            return;
-        }
-        flat+=root.val+",";
-        preorder(root.left);
-        preorder(root.right);
     }
 }
