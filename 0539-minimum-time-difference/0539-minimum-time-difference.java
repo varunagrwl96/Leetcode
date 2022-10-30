@@ -15,7 +15,7 @@ public class Solution {
             mm = Math.min(mm, time.get(i) - time.get(i-1));
         }
         
-        int corner = time.get(0) + (1440 - time.get(time.size()-1));
+        int corner = time.get(0) + (24*60 - time.get(time.size()-1));
         return Math.min(mm, corner);
     }
 }
