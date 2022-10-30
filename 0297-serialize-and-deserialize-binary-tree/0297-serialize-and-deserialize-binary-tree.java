@@ -10,45 +10,43 @@
 public class Codec {
 
     // Encodes a tree to a single string.
+    String ans= "";
+    int pos=0;
     public String serialize(TreeNode root) {
-        String serialized = rserialize(root, "");
-        System.out.println(serialized);
-        return serialized;
+        recursive(root);
+        System.out.println(ans.toString());
+        return ans;
     }
     
-    public String rserialize(TreeNode root, String str) {
-        // Recursive serialization.
-        if (root == null) {
-          str += "null,";
-        } else {
-          str += str.valueOf(root.val) + ",";
-          str = rserialize(root.left, str);
-          str = rserialize(root.right, str);
+    public void recursive(TreeNode root){
+        if(root==null){
+            ans=ans+"#,";
+            return;
         }
-        return str;
-  }
+        ans=ans+root.val+",";
+        recursive(root.left);
+        recursive(root.right);
+    }
 
     // Decodes your encoded data to tree.
+    // 1,2,#,#,3,4,#,#,5,#,#,
     public TreeNode deserialize(String data) {
-        String[] data_array = data.split(",");
-        List<String> data_list = new LinkedList<String>(Arrays.asList(data_array));
-        return rdeserialize(data_list);
+        String[] sarr = data.split(",");
+        return recursive2(sarr);
     }
     
-      public TreeNode rdeserialize(List<String> l) {
-        // Recursive deserialization.
-        if (l.get(0).equals("null")) {
-          l.remove(0);
-          return null;
+    public TreeNode recursive2(String[] sarr){
+        String curr = sarr[pos];
+        if(curr.equals("#")){
+            return null;
         }
-
-        TreeNode root = new TreeNode(Integer.valueOf(l.get(0)));
-        l.remove(0);
-        root.left = rdeserialize(l);
-        root.right = rdeserialize(l);
-
-        return root;
-  }
+        TreeNode node = new TreeNode(Integer.parseInt(curr));
+        pos++;
+        node.left = recursive2(sarr);
+        pos++;
+        node.right = recursive2(sarr);
+        return node;
+    }
 }
 
 // Your Codec object will be instantiated and called as such:
