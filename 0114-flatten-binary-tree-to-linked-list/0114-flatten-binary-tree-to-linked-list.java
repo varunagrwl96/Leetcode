@@ -16,15 +16,8 @@
 class Solution {
     String flat="";
     int pos=0;
-    public void flatten(TreeNode root) {
-        // List<TreeNode> list = new ArrayList();
-        
+    public void flatten(TreeNode root) {        
         preorder(root);
-        // System.out.println(list);
-        // for(TreeNode x : list){
-        //     System.out.print(x==null? x : x.val);
-        // }
-        // root = new TreeNode(root.val);
         TreeNode roottemp = root;
         String[] flat_split = flat.split(",");
         for(int i=1;i<flat_split.length;i++){
@@ -48,12 +41,4 @@ class Solution {
         preorder(root.left);
         preorder(root.right);
     }
-    
-    // public TreeNode constructTree(String[] s){
-    //     if(s[pos]=="null"){
-    //         return null;
-    //     }
-    //     TreeNode root = new TreeNode(Integer.parseInt(s[pos]));
-    //     root.right = constru
-    // }
 }
