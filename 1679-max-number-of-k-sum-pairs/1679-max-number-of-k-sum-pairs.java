@@ -2,20 +2,16 @@ class Solution {
     public int maxOperations(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int count = 0;
-        // build the hashmap with count of occurence of every element in array
-        for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
-        }
         for (int i = 0; i < nums.length; i++) {
             int current = nums[i];
-            int complement = k - nums[i];
-            if (map.getOrDefault(current, 0) > 0
-                    && map.getOrDefault(complement, 0) > 0) {
-                if ((current == complement) && map.get(current) < 2)
-                    continue;
-                map.put(current, map.get(current) - 1);
+            int complement = k - current;
+            if (map.getOrDefault(complement, 0) > 0) {
+                // remove complement from the map
                 map.put(complement, map.get(complement) - 1);
                 count++;
+            } else {
+                 // add current element in the map
+                map.put(current, map.getOrDefault(current, 0) + 1);
             }
         }
         return count;
