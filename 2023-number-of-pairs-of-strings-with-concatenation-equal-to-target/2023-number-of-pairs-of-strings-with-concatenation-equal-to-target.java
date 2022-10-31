@@ -6,7 +6,7 @@ class Solution {
         for(int i=0;i<nums.length;i++){
             hashmap.put(nums[i],hashmap.getOrDefault(nums[i],0)+1);
         }
-        for(int i=1;i<n;i++){
+        for(int i=0;i<n;i++){
             String pre = target.substring(0,i);
             String post = target.substring(i,n);
             if(hashmap.containsKey(pre) && hashmap.containsKey(post)){
