@@ -9,7 +9,7 @@ class Solution {
         for(int i=1;i<n;i++){
             String pre = target.substring(0,i);
             String post = target.substring(i,n);
-            if((pre+post).equals(target) && hashmap.containsKey(pre) && hashmap.containsKey(post)){
+            if(hashmap.containsKey(pre) && hashmap.containsKey(post)){
                 if(!pre.equals(post)){
                     count = count + (hashmap.get(pre)*hashmap.get(post));
                 }else{
