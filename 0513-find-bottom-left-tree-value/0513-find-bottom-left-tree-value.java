@@ -15,6 +15,7 @@
  */
 class Solution {
     public int findBottomLeftValue(TreeNode root) {
+        //Do bfs but right first then left in queue
         Queue<TreeNode> queue = new LinkedList();
         queue.add(root);
         TreeNode curr=null;
