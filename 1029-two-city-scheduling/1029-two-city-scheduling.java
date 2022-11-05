@@ -11,7 +11,6 @@ class Solution {
     // To optimize the company expenses,
     // send the first n persons to the city A
     // and the others to the city B
-    // for (int i = 0; i < n; ++i) total += costs[i][0] + costs[i + n][1];
       for(int i=0;i<costs.length;i++){
           if(i<n){
            total+=costs[i][0];   
