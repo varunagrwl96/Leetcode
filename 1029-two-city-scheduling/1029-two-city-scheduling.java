@@ -13,9 +13,9 @@ class Solution {
     // and the others to the city B
       for(int i=0;i<costs.length;i++){
           if(i<n){
-           total+=costs[i][0];   
+            total+=costs[i][0];   
           }else{
-          total+=costs[i][1];
+            total+=costs[i][1];
           }
       }
     return total;
