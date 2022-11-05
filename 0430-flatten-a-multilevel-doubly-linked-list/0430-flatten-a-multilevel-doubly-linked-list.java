@@ -17,29 +17,29 @@ class Node {
 };
 */
 class Solution {
-  public Node flatten(Node head) {
-    if (head == null) return head;
-    // pseudo head to ensure the `prev` pointer is never none
-    Node dummy = new Node(0, null, head, null);
-
-    flattenDFS(dummy, head);
-
-    // detach the pseudo head from the real head
-    dummy.next.prev = null;
-    return dummy.next;
-  }
-  /* return the tail of the flatten list */
-  public Node flattenDFS(Node prev, Node curr) {
-    if (curr == null) return prev;
-    curr.prev = prev;
-    prev.next = curr;
-
-    // the curr.next would be tempered in the recursive function
-    Node tempNext = curr.next;
-
-    Node tail = flattenDFS(curr, curr.child);
-    curr.child = null;
-
-    return flattenDFS(tail, tempNext);
-  }
+    public Node flatten(Node head) {
+        Node curr=head;
+        while(curr!=null){
+            if(curr.child != null){
+                Node tail = findTail(curr.child);
+                if(curr.next != null){
+                    curr.next.prev=tail;
+                }
+                
+                tail.next = curr.next;
+                curr.next =curr.child;
+                curr.child.prev = curr;
+                curr.child =null;
+            }
+            curr = curr.next;
+        }
+        return head;
+    }
+    
+    public Node findTail(Node child){
+        while(child.next != null){
+            child=child.next;
+        }
+        return child;
+    }
 }
