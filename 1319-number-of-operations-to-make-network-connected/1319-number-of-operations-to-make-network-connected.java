@@ -9,13 +9,17 @@ class Solution {
         }
         int components = 0;
         boolean[] visited = new boolean[n];
-        for (int v = 0; v < n; v++) components += dfs(v, graph, visited);
+        for (int i = 0; i < n; i++){
+            components += dfs(i, graph, visited);
+        } 
         return components - 1; // Need (components-1) cables to connect components together
     }
-    int dfs(int u, List<Integer>[] graph, boolean[] visited) {
-        if (visited[u]) return 0;
-        visited[u] = true;
-        for (int v : graph[u]) dfs(v, graph, visited);
+    int dfs(int node, List<Integer>[] graph, boolean[] visited) {
+        if (visited[node]) return 0;
+        visited[node] = true;
+        for (int nei : graph[node]){
+          dfs(nei, graph, visited);  
+        } 
         return 1;
     }
 }
