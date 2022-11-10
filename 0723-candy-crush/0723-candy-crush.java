@@ -21,6 +21,7 @@ class Solution {
             }
         }
 
+        //Move values down - Fill zeros column wise
         for (int c = 0; c < C; ++c) {
             int wr = R - 1;
             for (int r = R-1; r >= 0; --r)
