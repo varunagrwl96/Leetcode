@@ -11,7 +11,7 @@ class Solution {
         boolean[] visited = new boolean[n];
         for (int i = 0; i < n; i++){
             components += dfs(i, graph, visited);
-        } 
+        } //basically count number of islands/components and joint them together with n-1 connections
         return components - 1; // Need (components-1) cables to connect components together
     }
     int dfs(int node, List<Integer>[] graph, boolean[] visited) {
