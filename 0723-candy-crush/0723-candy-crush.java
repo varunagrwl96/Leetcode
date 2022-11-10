@@ -2,6 +2,8 @@ class Solution {
     public int[][] candyCrush(int[][] board) {
         int R = board.length, C = board[0].length;
         boolean todo = false;
+        
+        //Mark same values negative, if we mark them zero, we will miss some elements, eg - row of 3 candies and col of 3 candies with just one common candy between them
         for (int r = 0; r < R; ++r) {
             for (int c = 0; c + 2 < C; ++c) {
                 int v = Math.abs(board[r][c]);
