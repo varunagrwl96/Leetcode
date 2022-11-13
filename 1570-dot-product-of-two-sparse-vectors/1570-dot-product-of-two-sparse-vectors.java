@@ -2,7 +2,7 @@ class SparseVector {
     
     // int[] sparse;
     HashMap<Integer,Integer> hashmap = new HashMap();
-    //Else store list of tuples<Index,Num>
+    //Else store list of tuples<Index,Num> List<int[]>
     
     SparseVector(int[] nums) {
         // sparse = nums;
