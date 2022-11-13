@@ -1,14 +1,15 @@
 class SparseVector {
     
     // int[] sparse;
-    HashMap<Integer,Integer> hashmap = new HashMap();
-    //Else store list of tuples<Index,Num> List<int[]>
+    // HashMap<Integer,Integer> hashmap = new HashMap();
+    List<int[]> pairs;
     
     SparseVector(int[] nums) {
         // sparse = nums;
-        for(int i=0;i<nums.length;i++){
-            if(nums[i]!=0){
-                hashmap.put(i,nums[i]);
+        pairs = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                pairs.add(new int[]{i, nums[i]});
             }
         }
     }
@@ -21,13 +22,28 @@ class SparseVector {
         //     ans +=sparse[i]*sparse2[i];
         // }
         // return ans;
-        int ans=0;
-        HashMap<Integer,Integer> hashmap2 = vec.hashmap;
-        for(int key : hashmap.keySet()){
-            if(hashmap2.containsKey(key))
-            ans+=hashmap.get(key)*hashmap2.get(key);
+        // int ans=0;
+        // HashMap<Integer,Integer> hashmap2 = vec.hashmap;
+        // for(int key : hashmap.keySet()){
+        //     if(hashmap2.containsKey(key))
+        //     ans+=hashmap.get(key)*hashmap2.get(key);
+        // }
+        // return ans;
+        int result = 0, p = 0, q = 0;
+        while (p < pairs.size() && q < vec.pairs.size()) {
+            if (pairs.get(p)[0] == vec.pairs.get(q)[0]) {
+                result += pairs.get(p)[1] * vec.pairs.get(q)[1];
+                p++;
+                q++;
+            }
+            else if (pairs.get(p)[0] > vec.pairs.get(q)[0]) {
+                q++;
+            }
+            else {
+                p++;
+            }
         }
-        return ans;
+        return result;
     }
 }
 
