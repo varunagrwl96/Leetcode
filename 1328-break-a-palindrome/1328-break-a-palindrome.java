@@ -3,7 +3,7 @@ class Solution {
         int n = palindrome.length();
         if(n==1) return "";
         String ans="";
-        for(int i=0;i<(n/2);i++){
+        for(int i=0;i<n/2;i++){
             char curr = palindrome.charAt(i);
             if(curr=='a'){
                 continue;
