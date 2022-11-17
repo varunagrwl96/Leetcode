@@ -5,10 +5,10 @@ class Solution {
         int t = 0;
         groups[0] = 1;
         for (int i = 1; i < s.length(); i++) {
-            if (s.charAt(i-1) != s.charAt(i)) {
-                groups[++t] = 1;
-            } else {
+            if (s.charAt(i-1) == s.charAt(i)) {
                 groups[t]++;
+            } else {
+                groups[++t] = 1;
             }
         }
 
