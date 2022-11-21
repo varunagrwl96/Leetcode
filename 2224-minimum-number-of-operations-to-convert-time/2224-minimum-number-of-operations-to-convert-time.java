@@ -1,20 +1,32 @@
 class Solution {
     public int convertTime(String current, String correct) {
         String[] curr = current.split(":");
-        int currmins = Integer.parseInt(curr[0])*60 + Integer.parseInt(curr[1]);
         String[] corr = correct.split(":");
-        int corrmins = Integer.parseInt(corr[0])*60 + Integer.parseInt(corr[1]);
+        int cur = Integer.parseInt(curr[0]) * 60 + Integer.parseInt(curr[1]);
+        int cor = Integer.parseInt(corr[0]) * 60 + Integer.parseInt(corr[1]);
+        int count = 0;
         
-        int[] dp = new int[corrmins+1];
-        int[] choices = new int[]{1,5,15,60};
-        Arrays.fill(dp,corrmins+1);
-        dp[currmins]=0;
-        for(int i=currmins;i<=corrmins;i++){
-            for(int choice : choices){
-                if(i-choice<currmins) continue;
-                dp[i]=Math.min(dp[i-choice]+1,dp[i]);
-            }
+        while(cur + 60 <= cor) {
+            ++count;
+            cur += 60;
         }
-        return dp[corrmins];
+        
+         while(cur + 15 <= cor) {
+            ++count;
+            cur += 15;
+        }
+        
+         while(cur + 5 <= cor) {
+            ++count;
+            cur += 5;
+        }
+        
+         while(cur + 1 <= cor) {
+            ++count;
+            cur += 1;
+        }
+        
+        return count;
+        
     }
 }
