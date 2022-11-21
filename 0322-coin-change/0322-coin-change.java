@@ -1,7 +1,7 @@
 class Solution {
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount+1];
-        Arrays.fill(dp,amount+1);
+        Arrays.fill(dp,amount+1); //Important, no Integer.MAX_Value coz +1 in math.min will make it -ve and will be taken as minimum
         dp[0]=0;
         for(int i=1;i<=amount;i++){
             for(int coin : coins){
