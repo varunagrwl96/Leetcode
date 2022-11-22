@@ -36,3 +36,5 @@ class Solution {
         return todo ? candyCrush(board) : board;
     }
 }
+//Time O((R*C)^2) coz each function call scans the board three times so it's 3(R*C). If we only crush 3 candies each time, the function will be called (R*C)/3 times. Multiply those two terms together you get O((R*C)^2).
+//space O(1)
