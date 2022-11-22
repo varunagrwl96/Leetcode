@@ -1,14 +1,12 @@
 class Solution {
     public boolean findSubarrays(int[] nums) {
-        int prev=0;
-        int curr=0;
+        
+        HashSet<Integer> hashset = new HashSet();
         for(int i=0;i<nums.length-1;i++){
-            prev=nums[i]+nums[i+1];
-            for(int j=i+1;j<nums.length-1;j++){
-                curr = nums[j]+nums[j+1];
-                if(curr==prev){
-                    return true;
-                }
+            if(hashset.contains(nums[i]+nums[i+1])){
+                return true;
+            }else{
+                hashset.add(nums[i]+nums[i+1]);
             }
         }
         return false;
