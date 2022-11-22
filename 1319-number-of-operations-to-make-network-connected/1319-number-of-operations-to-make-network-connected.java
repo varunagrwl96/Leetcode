@@ -14,7 +14,7 @@ class Solution {
         } //basically count number of islands/components and joint them together with n-1 connections
         return components - 1; // Need (components-1) cables to connect components together
     }
-    int dfs(int node, List<Integer>[] graph, boolean[] visited) {
+    public int dfs(int node, List<Integer>[] graph, boolean[] visited) {
         if (visited[node]) return 0;
         visited[node] = true;
         for (int nei : graph[node]){
