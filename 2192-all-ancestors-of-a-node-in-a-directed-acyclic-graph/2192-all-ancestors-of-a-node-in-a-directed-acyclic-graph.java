@@ -25,7 +25,7 @@ class Solution {
             List<Integer> children = hashmap.get(parent);
             for(int child : children){
                 parentsets.get(child).add(parent);
-                parentsets.get(child).addAll(parentsets.get(parent));
+                parentsets.get(child).addAll(parentsets.get(parent)); //Important, to add all parents of the parent node
                 indegree[child]--;
                 if(indegree[child]==0){
                     queue.add(child);
