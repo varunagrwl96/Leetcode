@@ -1,6 +1,6 @@
 class Solution {
     public List<List<Integer>> getAncestors(int n, int[][] edges) {
-        
+        //Topological Sort problem, add indegree zero to queue and add this node as parent to all its child
         HashMap<Integer,List<Integer>> hashmap = new HashMap();
         int[] indegree = new int[n];
         for(int i=0;i<n;i++){
