@@ -61,12 +61,12 @@ class Solution {
         
         if(nums1 == null){
             int n = nums2.length;
-            return nums2[(n - 1) / 2] * 0.5 + nums2[n / 2] * 0.5;
+            return (nums2[(n - 1) / 2] + nums2[n / 2])/2.0;
         }
         
         if(nums2 == null){
             int n = nums1.length;
-            return nums1[(n - 1) / 2] * 0.5 + nums1[n / 2] * 0.5;
+            return (nums1[(n - 1) / 2] + nums1[n / 2])/2.0;
         }
         
         if(nums1.length > nums2.length){
