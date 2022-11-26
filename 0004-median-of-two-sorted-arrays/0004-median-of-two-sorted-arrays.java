@@ -47,7 +47,7 @@
 //             }else if(aleft>bright){
 //                 r=i-1;
 //             }else{
-//                 l=i+1;
+//                 l=i;
 //             }
 //         }
 //         return -2;
@@ -102,7 +102,7 @@ class Solution {
         if((n + m) % 2 == 1) {
             return Math.min(shorterRight, longerRight);
         }else{
-            return Math.max(shorterLeft, longerLeft) * 0.5 + Math.min(shorterRight, longerRight) * 0.5;
+            return (Math.max(shorterLeft, longerLeft) + Math.min(shorterRight, longerRight)) / 2.0;
         }
  
 
