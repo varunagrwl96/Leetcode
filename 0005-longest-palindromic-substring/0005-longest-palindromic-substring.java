@@ -11,18 +11,18 @@ class Solution {
             if(len1>maxlen){
                 maxlen=len1;
                 maxi=i-((len1-1)/2);
-                maxj=i+(len1/2)+1;
+                maxj=i+(len1/2);
             }
             // System.out.println(i+" "+maxi+" "+maxj);
             if(len2>maxlen){
                 maxlen=len2;
                 maxi=i-((len2-1)/2);
-                maxj=i+(len2/2)+1;
+                maxj=i+(len2/2);
             }
             // System.out.println(i+" "+maxi+" "+maxj);
             i++;
         }
-        return s.substring(maxi,maxj);
+        return s.substring(maxi,maxj+1);
     }
     
     
