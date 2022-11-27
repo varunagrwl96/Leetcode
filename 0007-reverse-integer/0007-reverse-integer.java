@@ -3,7 +3,7 @@ class Solution {
         int ans=0;
         boolean isneg=false;
         if(x<0){
-            x=-x;
+            x=-1*x;
             isneg=true;
         }
         while(x>0){
