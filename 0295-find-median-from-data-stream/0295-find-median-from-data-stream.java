@@ -5,11 +5,11 @@ class MedianFinder {
     
     public void addNum(int num) {
         if (even) {
-            small.offer(num);
-            large.offer(small.poll());
-        } else {
             large.offer(num);
             small.offer(large.poll());
+        } else {
+            small.offer(num);
+            large.offer(small.poll());
         }
         even = !even;
     }
@@ -18,7 +18,7 @@ class MedianFinder {
         if (even)
             return (small.peek() + large.peek()) / 2.0;
         else
-            return large.peek();
+            return small.peek();
     }
 }
 
