@@ -1,23 +1,25 @@
 class Solution {
-    List<String> ans = new ArrayList();
     public List<String> letterCombinations(String digits) {
-        String[][] map = new String[][]{null,null,{"a","b","c"},{"d","e","f"},{"g","h","i"},{"j","k","l"},{"m","n","o"},{"p","q","r","s"},{"t","u","v"},{"w","x","y","z"}};
-        
-        if(digits==null || digits.length()==0) return ans;
-            
-        recursion(digits,map,"",0);
-        return ans;
+        List<String> result = new ArrayList();
+        String[] mappings = new String[]{
+          "0","1","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"
+        };
+        if(digits==null || digits.length()==0){
+            return result;
+        }
+        recursive(digits,result,0,"",mappings);
+        return result;
     }
     
-    public void recursion(String digits, String[][] map, String combination, int index){
-        if(combination.length()==digits.length()){
-            ans.add(combination);
+    
+    public void recursive(String digits, List<String> result, int index, String combination,String[] mappings){
+        if(index==digits.length()){
+            result.add(combination);
             return;
         }
-        int curr = digits.charAt(index)-'0';
-        String[] digitmap = map[curr];
-        for(String x : digitmap){
-            recursion(digits,map,combination+x,index+1);
+        String curr = mappings[digits.charAt(index)-'0'];
+        for(int i=0;i<curr.length();i++){
+            recursive(digits,result,index+1,combination+curr.charAt(i),mappings);
         }
     }
 }
