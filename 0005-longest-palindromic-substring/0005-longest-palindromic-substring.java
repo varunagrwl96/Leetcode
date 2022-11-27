@@ -10,19 +10,17 @@ class Solution {
             int len2 = longestPalindrome(s,i,i+1);
             if(len1>maxlen){
                 maxlen=len1;
-                maxi=i-((len1-1)/2);
+                maxi=i-((len1-1)/2); //Imp
                 maxj=i+(len1/2);
             }
-            // System.out.println(i+" "+maxi+" "+maxj);
             if(len2>maxlen){
                 maxlen=len2;
                 maxi=i-((len2-1)/2);
                 maxj=i+(len2/2);
             }
-            // System.out.println(i+" "+maxi+" "+maxj);
             i++;
         }
-        return s.substring(maxi,maxj+1);
+        return s.substring(maxi,maxj+1); //Imp
     }
     
     
