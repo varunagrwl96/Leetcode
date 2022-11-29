@@ -29,3 +29,5 @@ class Solution {
         return anshead.next;
     }
 }
+//Time O(nlogk)
+//Space O(n)
