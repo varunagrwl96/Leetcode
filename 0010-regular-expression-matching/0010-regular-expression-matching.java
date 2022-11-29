@@ -11,7 +11,7 @@ class Solution {
     public boolean recursion(int i, int j, String s, String p){
         
         if(i>=s.length() && j>=p.length()) return true;
-        if(j>=p.length()) return false;
+        if(i<s.length() && j>=p.length()) return false;
         
         // if(i>=s.length() && j<p.length())//Need to check for * after
         
